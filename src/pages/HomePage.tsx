@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FileUpload } from "@/components/FileUpload";
 import { TextDisplay } from "@/components/TextDisplay";
+import { ContentStats } from "@/components/ContentStats";
 import { Button } from "@/components/ui/button";
 import { Sparkles, RefreshCw } from "lucide-react";
 import { extractTextFromImage, extractTextFromPDF, analyzeSocialMediaContent } from "@/services/llmService";
@@ -176,6 +177,12 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
+          </div>
+        )}
+
+        {extractedText && (
+          <div className="mb-6">
+            <ContentStats text={extractedText} />
           </div>
         )}
 
